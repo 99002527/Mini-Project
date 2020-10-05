@@ -19,5 +19,5 @@ jobs:
         sudo apt-get -y install libcunit1 libcunit1-doc libcunit1-dev 
     - name: make test
       run: |
-        g++ Mini-Project/Implementation/og.cpp -lpthread -o Mini-Project/Implementation/all.out
-        valgrind ./Mini-Project/Implementation/all.out
+        g++ /Implementation/og.cpp -lpthread -o /Implementation/all.out
+        valgrind ./Implementation/all.out
