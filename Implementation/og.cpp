@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
     numCustomers = x;
     cin>>y;
     numChairs = y;
-    cout<<"\n"<<"Price per km is 10";
+    cout<<"\n"<<"Price per km is 10 plus variable cost after 5km";
 //List to get Name, ID and phone number from the customer
     list <int> id1;
     list <string> nam1;
@@ -96,12 +96,24 @@ int main(int argc, char *argv[])
     }
 
     int sum=0;
-    for (std::list<int>::iterator it=d1.begin(); it != d1.end(); ++it)
+     for (std::list<int>::iterator it=d1.begin(); it != d1.end(); ++it)
     {
-        sum+=*it;
+
+        if((*it<5)||(numCustomers<2)){
+        sum+=*it*10;
+        bonus=0;
+        }
+        else if(((*it>5)&&(*it<10))||((numCustomers>=2)&&(numCustomers<=5))){
+            sum+=(5*10)+((*it-5)*2);
+        }
+        else{
+            sum+=(5*10)+((*it-5)*4);
+            bonus=20;
+        }
     }
+
     int cost ;
-    cost =sum*10;
+    cost =sum+bonus;
     cout<<"\nThe driver has made "<<cost<<" today\n";
     if (numCustomers > MAX_CUSTOMERS)
     {
